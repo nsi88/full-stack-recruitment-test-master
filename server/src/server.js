@@ -4,6 +4,7 @@ require('es6-promise').polyfill();
 const express = require('express');
 const app = express();
 const api = require('./api/');
+const clientApi = require('./client_api');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -24,7 +25,6 @@ app.get('/', (req, res) => {
   http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart
 */
 app.get('/api/search', (req, res) => {
-  console.log(req);
   api.livePricing.search({
     // TODO: validate params
     adults: req.query.adults,
@@ -34,11 +34,11 @@ app.get('/api/search', (req, res) => {
     fromPlace: req.query.fromPlace,
     fromDate: req.query.fromDate
   })
+  // TODO: tests
   .then((results) => {
-    // TODO - a better format for displaying results to the client
-    console.log('TODO: transform results for consumption by client');
-    res.json(results);
+    res.json(clientApi.response.format(results));
   })
+  // TODO: return error response
   .catch(console.error);
 });
 
