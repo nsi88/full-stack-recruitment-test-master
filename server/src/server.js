@@ -24,10 +24,15 @@ app.get('/', (req, res) => {
   http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart
 */
 app.get('/api/search', (req, res) => {
-
+  console.log(req);
   api.livePricing.search({
-    // TODO client to provide params
-    // check in api docs what client should provide
+    // TODO: validate params
+    adults: req.query.adults,
+    class: req.query.class,
+    toPlace: req.query.toPlace,
+    toDate: req.query.toDate,
+    fromPlace: req.query.fromPlace,
+    fromDate: req.query.fromDate
   })
   .then((results) => {
     // TODO - a better format for displaying results to the client
