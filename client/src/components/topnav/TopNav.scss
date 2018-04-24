@@ -1,6 +1,6 @@
 @import "~bpk-mixins";
 
-.header {
+.topNav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,6 +15,7 @@
 }
 
 .logoText {
+  // REVIEW: Do I need to show it?
   @include bpk-visually-hidden;
 }
 
