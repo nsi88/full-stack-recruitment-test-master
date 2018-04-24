@@ -68,7 +68,8 @@ function formatLeg(leg, results) {
   const destinationStation = findPlace(leg.DestinationStation, results);
   return {
     'Carrier': {
-      'ImageUrl': carrier.ImageUrl,
+      'Code': carrier.Code,
+      'Name': carrier.Name,
     },
     'Departure': leg.Departure,
     'Arrival': leg.Arrival,
