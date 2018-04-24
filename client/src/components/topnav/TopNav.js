@@ -1,7 +1,7 @@
 import React from 'react';
 import './TopNav.scss';
-import logo from '../..//logo.svg';
-import burgerMenu from '../..//burger-menu.svg';
+import logo from '../../icons/logo.svg';
+import burgerMenu from '../../icons/burger-menu.svg';
 
 const TopNav = () => (
   <nav className='topNav'>

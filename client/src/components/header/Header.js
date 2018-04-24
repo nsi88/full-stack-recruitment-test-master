@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.scss';
-import longArrowRight from '../..//long-arrow-right.svg';
+import longArrowRight from '../../icons/long-arrow-right.svg';
 
 const Header = ({fromPlace, toPlace, adults, cabinClass}) => (
   <header className='header'>
