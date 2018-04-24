@@ -3,6 +3,7 @@ import './App.scss';
 
 import TopNav from './components/topnav';
 import Header from './components/header';
+import Controls from './components/controls';
 
 const fromPlace = 'EDI', toPlace = 'LON', adults = 2, cabinClass = 'Economy';
 
@@ -12,7 +13,7 @@ class App extends Component {
       <div className="App">
         <TopNav/>
         <Header fromPlace={fromPlace} toPlace={toPlace} adults={adults} cabinClass={cabinClass}/>
-        // TODO placeholder controls
+        <Controls/>
         // TODO results component
       </div>
     );
