@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import './App.scss';
 
 import TopNav from './components/topnav';
+import Header from './components/header';
+
+const fromPlace = 'EDI', toPlace = 'LON', adults = 2, cabinClass = 'Economy';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <TopNav/>
-        // TODO header
+        <Header fromPlace={fromPlace} toPlace={toPlace} adults={adults} cabinClass={cabinClass}/>
         // TODO placeholder controls
         // TODO results component
       </div>
