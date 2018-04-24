@@ -17,3 +17,10 @@
 .logoText {
   @include bpk-visually-hidden;
 }
+
+.burgerMenu {
+  vertical-align: middle;
+  width: $bpk-icon-size-lg;
+  height: $bpk-icon-size-lg;
+  cursor: pointer;
+}
