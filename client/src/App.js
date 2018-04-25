@@ -16,8 +16,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: [],
       fetchingInProgress: true,
+      error: null,
+      results: [],
     };
   }
 
@@ -32,9 +33,13 @@ class App extends Component {
     })
     .then((results) => {
       console.debug('results:', results);
-      this.setState({results: results.Itineraries, fetchingInProgress: false});
+      this.setState({fetchingInProgress: false, error: null, results: results.Itineraries});
     })
-    .catch(console.error);
+    .catch((error) => {
+      console.error(error);
+      const networkErrorMessage = 'A network error is encountered. Please try again.';
+      this.setState({fetchingInProgress: false, error: networkErrorMessage, results: []});
+    });
   }
 
   render() {
@@ -43,7 +48,9 @@ class App extends Component {
         <TopNav/>
         <Header fromPlace={fromPlace} toPlace={toPlace} adults={adults} cabinClass={cabinClass}/>
         <Controls/>
-        <Results results={this.state.results} fetchingInProgress={this.state.fetchingInProgress}/>
+        <Results fetchingInProgress={this.state.fetchingInProgress}
+          error={this.state.error}
+          results={this.state.results}/>
       </div>
     );
   }

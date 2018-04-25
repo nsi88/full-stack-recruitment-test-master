@@ -1,15 +1,24 @@
 import React from 'react';
+import BpkBannerAlert, { ALERT_TYPES } from 'bpk-component-banner-alert';
 import './Results.scss';
 // TODO: use one arrow icon passing a color as a prop.
 import longArrowRightGray from '../../icons/long-arrow-right-gray.svg';
 import dateTimeHelper from '../../date-time-helper.js';
 
-const Results = ({results, fetchingInProgress}) => {
+const Results = ({fetchingInProgress, error, results}) => {
   if (fetchingInProgress) {
     return (
       <div className='spinner'>
         <div className='spinner__icon'/>
         <div className='spinner__text'>Searching</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className='error'>
+        <BpkBannerAlert message={error} type={ALERT_TYPES.ERROR}/>
       </div>
     );
   }
