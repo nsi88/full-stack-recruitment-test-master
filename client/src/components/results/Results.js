@@ -25,7 +25,7 @@ const Results = ({fetchingInProgress, error, results}) => {
 
   return (
     <ul className='results'>
-      {results.map((result) => (<Result result={result}/>))}
+      {results.map((result, index) => (<Result key={`result-${index}`} result={result}/>))}
     </ul>
   );
 };
@@ -33,7 +33,7 @@ const Results = ({fetchingInProgress, error, results}) => {
 const Result = ({result}) => (
   <li className='result'>
     <div className='result__legs'>
-      {result.Legs.map((leg) => (<Leg leg={leg}/>))}
+      {result.Legs.map((leg, index) => (<Leg key={`leg-${index}`} leg={leg}/>))}
     </div>
     <div className='result__bottom'>
       <div className='result__price-info'>
