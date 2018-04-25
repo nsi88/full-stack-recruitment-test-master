@@ -6,22 +6,24 @@
   align-items: center;
   padding: $bpk-spacing-sm;
   background-color: $bpk-color-white;
+
+  &__control {
+    @include bpk-text-base();
+    color: $bpk-color-blue-500;
+    cursor: pointer;
+  }
+
+  &__control:not(:first-child) {
+    margin-left: 2.375rem;
+  }
 }
 
 .control {
-  @include bpk-text-base();
-  color: $bpk-color-blue-500;
-  cursor: pointer;
-}
-
-.control:not(:first-child) {
-  margin-left: 2.375rem;
-}
-
-.price-alerts {
-  width: $bpk-icon-size-sm;
-  height: $bpk-icon-size-sm;
-  position: relative;
-  top: .175rem;
-  left: -0.175rem;
+  &__price-alerts {
+    width: $bpk-icon-size-sm;
+    height: $bpk-icon-size-sm;
+    position: relative;
+    top: .175rem;
+    left: -0.175rem;
+  }
 }

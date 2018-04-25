@@ -17,104 +17,104 @@
   background-color: $bpk-color-white;
   @include bpk-box-shadow-lg;
   @include bpk-border-radius-sm;
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__price-info {
+    padding: $bpk-spacing-xs 0 0;
+  }
+
+  &__price {
+    @include bpk-text-xl;
+    color: $bpk-color-gray-900;
+  }
+
+  &__agent {
+    @include bpk-text-base;
+    color: $bpk-color-gray-300;
+    position: relative;
+    top: -0.75rem;
+  }
+
+  &__select {
+    @include bpk-button;
+    margin: $bpk-spacing-xs 0 0;
+    padding: $bpk-spacing-xs $bpk-spacing-lg;
+  }
 }
 
 .leg {
   display: flex;
   justify-content: space-between;
   margin: 0 0 $bpk-spacing-sm;
-}
 
-.leg:last-child {
-  margin-bottom: 0;
-}
+  &:last-child {
+    margin-bottom: 0;
+  }
 
-.main-info {
-  display: flex;
-  align-items: center;
-}
+  &__main-info {
+    display: flex;
+    align-items: center;
+  }
 
-.additional-info {
-  @include bpk-text-sm;
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  padding: $bpk-spacing-xs 0 0;
-}
+  &__additional-info {
+    @include bpk-text-sm;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    padding: $bpk-spacing-xs 0 0;
+  }
 
-.duration {
-  display: flex;
-  justify-content: flex-end;
-  color: $bpk-color-gray-500;
-}
+  &__duration {
+    display: flex;
+    justify-content: flex-end;
+    color: $bpk-color-gray-500;
+  }
 
-.stops {
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  top: .375rem;
-}
+  &__stops {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: .375rem;
+  }
 
-.direct {
-  color: $bpk-color-green-500;
-}
+  &--direct {
+    color: $bpk-color-green-500;
+  }
 
-.with-stops {
-  color: $bpk-color-red-500;
-}
+  &--with-stops {
+    color: $bpk-color-red-500;
+  }
 
-.departure, .arrival {
-  @include bpk-text-base;
-  display: flex;
-  flex-direction: column;
-  padding: 0 $bpk-spacing-sm;
-}
+  &__departure, &__arrival {
+    @include bpk-text-base;
+    display: flex;
+    flex-direction: column;
+    padding: 0 $bpk-spacing-sm;
+  }
 
-.place {
-  color: $bpk-color-gray-500;
-}
+  &__place {
+    color: $bpk-color-gray-500;
+  }
 
-.arrow-container {
-  padding: $bpk-spacing-sm $bpk-spacing-xs;
-}
+  &__arrow-container {
+    padding: $bpk-spacing-sm $bpk-spacing-xs;
+  }
 
-.arrow {
-  width: .875rem;
-  height: .875rem;
-}
+  &__arrow {
+    width: .875rem;
+    height: .875rem;
+  }
 
-.airline {
-  @include bpk-border-radius-xs;
-  width: $bpk-icon-size-lg;
-  height: $bpk-icon-size-lg;
-  position: relative;
-  top: -0.375rem;
-}
-
-.bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.price-info {
-  padding: $bpk-spacing-xs 0 0;
-}
-
-.price {
-  @include bpk-text-xl;
-  color: $bpk-color-gray-900;
-}
-
-.agent {
-  @include bpk-text-base;
-  color: $bpk-color-gray-300;
-  position: relative;
-  top: -0.75rem;
-}
-
-.select {
-  @include bpk-button;
-  margin: $bpk-spacing-xs 0 0;
-  padding: $bpk-spacing-xs $bpk-spacing-lg;
+  &__airline {
+    @include bpk-border-radius-xs;
+    width: $bpk-icon-size-lg;
+    height: $bpk-icon-size-lg;
+    position: relative;
+    top: -0.375rem;
+  }
 }

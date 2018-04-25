@@ -8,20 +8,20 @@
 
   background-color: $bpk-color-white;
   box-shadow: 0 0 10px 0 $bpk-color-gray-300;
-}
 
-.logo {
-  vertical-align: middle;
-}
+  &__logo {
+    vertical-align: middle;
+  }
 
-.logo-text {
-  // REVIEW: Do I need to show it?
-  @include bpk-visually-hidden;
-}
+  &__logo-text {
+    // REVIEW: Do I need to show it?
+    @include bpk-visually-hidden;
+  }
 
-.burger-menu {
-  vertical-align: middle;
-  width: $bpk-icon-size-lg;
-  height: $bpk-icon-size-lg;
-  cursor: pointer;
+  &__burger-menu {
+    vertical-align: middle;
+    width: $bpk-icon-size-lg;
+    height: $bpk-icon-size-lg;
+    cursor: pointer;
+  }
 }
