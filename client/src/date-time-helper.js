@@ -29,11 +29,45 @@ const dateTimeHelper = {
    * Gets minutes.
    * E.g. 280 -> '4h 40'.
    */
-   formatDuration: (minutes) => {
+  formatDuration: (minutes) => {
      const hours = Math.floor(minutes / 60).toString();
      const leftMinutes = (minutes % 60).toString().padStart(2, '0');
      return `${hours}h ${leftMinutes}`;
-   }
+   },
+
+   /**
+    * Return next monday date for passed date.
+    *
+    * If date is not passed, today date will be used.
+    * If date is monday, the next week monday will be returned.
+    * Uses local time.
+    */
+   nextMonday: (date = new Date()) => {
+    const day = date.getDay();
+    switch (day) {
+      case 0: // sunday
+        date.setDate(date.getDate() + 1);
+        break;
+      case 1:
+        date.setDate(date.getDate() + 7);
+        break;
+      default:
+        date.setDate(date.getDate() + 8 - day);
+    }
+    return date;
+  },
+
+  folowingDay: (date) => {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+  },
+
+  /**
+   * Format date to 'YYYY-mm-dd'.
+   */
+  toISODateString: (date) => {
+    return date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') +
+      '-' + date.getDate().toString().padStart(2, '0');
+  },
 };
 
 module.exports = dateTimeHelper;

@@ -6,7 +6,10 @@ import Header from './components/header';
 import Controls from './components/controls';
 import Results from './components/results';
 
-const fromPlace = 'EDI', toPlace = 'LON', adults = 2, cabinClass = 'Economy';
+import dateTimeHelper from './date-time-helper.js';
+
+const fromPlace = 'EDI', toPlace = 'LON', adults = 2, cabinClass = 'Economy',
+  fromDate = dateTimeHelper.nextMonday(), toDate = dateTimeHelper.folowingDay(fromDate);
 
 const results = [{
   "Agent": {
