@@ -4,11 +4,22 @@ import './Results.scss';
 import longArrowRightGray from '../../icons/long-arrow-right-gray.svg';
 import dateTimeHelper from '../../date-time-helper.js';
 
-const Results = ({results}) => (
-  <ul className='results'>
-    {results.map((result) => (<Result result={result}/>))}
-  </ul>
-);
+const Results = ({results, fetchingInProgress}) => {
+  if (fetchingInProgress) {
+    return (
+      <div className='spinner'>
+        <div className='spinner__icon'/>
+        <div className='spinner__text'>Searching</div>
+      </div>
+    );
+  }
+
+  return (
+    <ul className='results'>
+      {results.map((result) => (<Result result={result}/>))}
+    </ul>
+  );
+};
 
 const Result = ({result}) => (
   <li className='result'>

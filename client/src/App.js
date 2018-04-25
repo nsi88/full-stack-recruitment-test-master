@@ -16,7 +16,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: []
+      results: [],
+      fetchingInProgress: true,
     };
   }
 
@@ -31,7 +32,7 @@ class App extends Component {
     })
     .then((results) => {
       console.debug('results:', results);
-      this.setState({results: results.Itineraries});
+      this.setState({results: results.Itineraries, fetchingInProgress: false});
     })
     .catch(console.error);
   }
@@ -42,7 +43,7 @@ class App extends Component {
         <TopNav/>
         <Header fromPlace={fromPlace} toPlace={toPlace} adults={adults} cabinClass={cabinClass}/>
         <Controls/>
-        <Results results={this.state.results}/>
+        <Results results={this.state.results} fetchingInProgress={this.state.fetchingInProgress}/>
       </div>
     );
   }

@@ -1,5 +1,21 @@
 @import "~bpk-mixins";
 
+.spinner {
+  &__icon {
+    @include bpk-spinner(spinner-gray-500);
+    display: block;
+    margin: auto;
+    padding: $bpk-spacing-sm;
+  }
+
+  &__text {
+    @include bpk-text-base;
+    text-align: center;
+    color: $bpk-color-gray-900;
+    padding: $bpk-spacing-sm;
+  }
+}
+
 .results {
   list-style-type: none;
   margin: 0;
