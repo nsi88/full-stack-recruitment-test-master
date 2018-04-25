@@ -4,10 +4,8 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-
   display: flex;
   flex-direction: column;
-
   background-color: $bpk-color-gray-50;
 }
 
@@ -31,38 +29,38 @@
   margin-bottom: 0;
 }
 
-.mainInfo {
+.main-info {
   display: flex;
   align-items: center;
 }
 
-.additionalInfo {
+.additional-info {
   @include bpk-text-sm;
   display: flex;
   flex-direction: column;
   align-content: space-between;
   padding: $bpk-spacing-xs 0 0;
+}
 
-  .duration {
-    display: flex;
-    justify-content: flex-end;
-    color: $bpk-color-gray-500;
-  }
+.duration {
+  display: flex;
+  justify-content: flex-end;
+  color: $bpk-color-gray-500;
+}
 
-  .stops {
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    top: .375rem;
-  }
+.stops {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  top: .375rem;
+}
 
-  .direct {
-    color: $bpk-color-green-500;
-  }
+.direct {
+  color: $bpk-color-green-500;
+}
 
-  .withStops {
-    color: $bpk-color-red-500;
-  }
+.with-stops {
+  color: $bpk-color-red-500;
 }
 
 .departure, .arrival {
@@ -70,19 +68,19 @@
   display: flex;
   flex-direction: column;
   padding: 0 $bpk-spacing-sm;
-
-  .place {
-    color: $bpk-color-gray-500;
-  }
 }
 
-.arrowContainer {
-  padding: $bpk-spacing-sm $bpk-spacing-xs;
+.place {
+  color: $bpk-color-gray-500;
+}
 
-  .arrow {
-    width: .875rem;
-    height: .875rem;
-  }
+.arrow-container {
+  padding: $bpk-spacing-sm $bpk-spacing-xs;
+}
+
+.arrow {
+  width: .875rem;
+  height: .875rem;
 }
 
 .airline {
@@ -99,7 +97,7 @@
   align-items: center;
 }
 
-.priceInfo {
+.price-info {
   padding: $bpk-spacing-xs 0 0;
 }
 

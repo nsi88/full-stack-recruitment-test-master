@@ -1,6 +1,6 @@
 @import "~bpk-mixins";
 
-.topNav {
+.top-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,12 +14,12 @@
   vertical-align: middle;
 }
 
-.logoText {
+.logo-text {
   // REVIEW: Do I need to show it?
   @include bpk-visually-hidden;
 }
 
-.burgerMenu {
+.burger-menu {
   vertical-align: middle;
   width: $bpk-icon-size-lg;
   height: $bpk-icon-size-lg;

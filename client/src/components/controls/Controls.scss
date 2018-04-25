@@ -5,24 +5,23 @@
   justify-content: space-between;
   align-items: center;
   padding: $bpk-spacing-sm;
-
   background-color: $bpk-color-white;
+}
 
-  .control {
-    @include bpk-text-base();
-    color: $bpk-color-blue-500;
-    cursor: pointer;
-  }
+.control {
+  @include bpk-text-base();
+  color: $bpk-color-blue-500;
+  cursor: pointer;
+}
 
-  .control:not(:first-child) {
-    margin-left: 2.375rem;
-  }
+.control:not(:first-child) {
+  margin-left: 2.375rem;
+}
 
-  .priceAlerts {
-    width: $bpk-icon-size-sm;
-    height: $bpk-icon-size-sm;
-    position: relative;
-    top: .175rem;
-    left: -0.175rem;
-  }
+.price-alerts {
+  width: $bpk-icon-size-sm;
+  height: $bpk-icon-size-sm;
+  position: relative;
+  top: .175rem;
+  left: -0.175rem;
 }

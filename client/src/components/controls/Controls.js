@@ -10,7 +10,7 @@ const Controls = () => (
     </div>
     <div>
       <span className='control'>
-        <img className='priceAlerts' role='presentation' src={priceAlerts}/>
+        <img className='price-alerts' role='presentation' src={priceAlerts}/>
         Price alerts
       </span>
     </div>

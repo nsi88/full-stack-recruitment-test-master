@@ -5,29 +5,28 @@
   flex-direction: column;
   align-content: center;
   padding: $bpk-spacing-sm;
-
   background-color: $bpk-color-blue-500;
   color: $bpk-color-white;
+}
 
-  .places {
-    @include bpk-heading-1();
-    margin-bottom: 0px;
-    text-transform: uppercase;
+.places {
+  @include bpk-heading-1();
+  margin-bottom: 0px;
+  text-transform: uppercase;
+}
 
-    .arrowContainer {
-      padding: $bpk-spacing-sm;
+.arrow-container {
+  padding: $bpk-spacing-sm;
+}
 
-      .arrow {
-        width: $bpk-icon-size-sm;
-        height: $bpk-icon-size-sm;
-        position: relative;
-        top: -0.375rem;
-      }
-    }
-  }
+.arrow {
+  width: $bpk-icon-size-sm;
+  height: $bpk-icon-size-sm;
+  position: relative;
+  top: -0.375rem;
+}
 
-  .details {
-    @include bpk-text-base();
-    text-transform: lowercase;
-  }
+.details {
+  @include bpk-text-base();
+  text-transform: lowercase;
 }

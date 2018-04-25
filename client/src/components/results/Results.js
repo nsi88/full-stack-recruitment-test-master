@@ -16,7 +16,7 @@ const Result = ({result}) => (
       {result.Legs.map((leg) => (<Leg leg={leg}/>))}
     </div>
     <div className='bottom'>
-      <div className='priceInfo'>
+      <div className='price-info'>
         <div className='price'>
           {result.Currency.Symbol}&nbsp;{result.Price}
         </div>
@@ -29,13 +29,13 @@ const Result = ({result}) => (
 
 const Leg = ({leg}) => (
   <div className='leg'>
-    <div className='mainInfo'>
+    <div className='main-info'>
       <img className='airline' alt={leg.Carrier.Name} src={carrierLogo(leg.Carrier.Code)}/>
       <div className='departure'>
         <div className='time'>{dateTimeHelper.formatTime(dateTimeHelper.parse(leg.Departure))}</div>
         <div className='place'>{leg.OriginStation.Code}</div>
       </div>
-      <div className='arrowContainer'>
+      <div className='arrow-container'>
         <img className='arrow' alt='to' src={longArrowRightGray}/>
       </div>
       <div className='arrival'>
@@ -43,9 +43,9 @@ const Leg = ({leg}) => (
         <div className='place'>{leg.DestinationStation.Code}</div>
       </div>
     </div>
-    <div className='additionalInfo'>
+    <div className='additional-info'>
       <div className='duration'>{dateTimeHelper.formatDuration(leg.Duration)}</div>
-      <div className={leg.StopsCount === 0 ? 'stops direct' : 'stops withStops'}>{stopsDescription(leg.StopsCount)}</div>
+      <div className={leg.StopsCount === 0 ? 'stops direct' : 'stops with-stops'}>{stopsDescription(leg.StopsCount)}</div>
     </div>
   </div>
 );

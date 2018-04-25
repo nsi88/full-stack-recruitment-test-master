@@ -6,7 +6,7 @@ const Header = ({fromPlace, toPlace, adults, cabinClass}) => (
   <header className='header'>
     <h1 className='places'>
       {fromPlace}
-      <span className='arrowContainer'>
+      <span className='arrow-container'>
         <img className='arrow' alt='to' src={longArrowRight}/>
       </span>
       {toPlace}
