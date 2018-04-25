@@ -55,8 +55,7 @@ function createSession (params) {
       .then((response) => {
         if (response.status !== 201) {
           console.error(response.status, 'something went wrong...')
-          return response.json()
-            .then(console.error);
+          response.json().then(reject);
         } else {
           // session created
          _.delay(() => {

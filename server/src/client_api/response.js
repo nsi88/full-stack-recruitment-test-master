@@ -2,10 +2,18 @@ const response = {
   /**
     Format client API response.
    */
-  format: (results) => {
-    return {
-      'Itineraries': results.Itineraries.map((itinerary) => formatItinerary(itinerary, results)),
-    };
+  format: ({errors, results}) => {
+    if (errors) {
+      return {
+        'errors': errors,
+      };
+    }
+
+    if (results) {
+      return {
+        'Itineraries': results.Itineraries.map((itinerary) => formatItinerary(itinerary, results)),
+      };
+    }
   }
 };
 

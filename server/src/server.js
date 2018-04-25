@@ -19,8 +19,6 @@ app.get('/', (req, res) => {
 /**
   Simple flight search api wrapper.
 
-  TODO: client should provide params
-
   Api params and location values are here:
   http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart
 */
@@ -36,10 +34,12 @@ app.get('/api/search', (req, res) => {
   })
   // TODO: tests
   .then((results) => {
-    res.json(clientApi.response.format(results));
+    res.json(clientApi.response.format({results}));
   })
-  // TODO: return error response
-  .catch(console.error);
+  .catch((errors) => {
+    console.error(errors);
+    res.json(clientApi.response.format({errors}));
+  });
 });
 
 app.listen(4000, () => {

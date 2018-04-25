@@ -33,7 +33,13 @@ class App extends Component {
     })
     .then((results) => {
       console.debug('results:', results);
-      this.setState({fetchingInProgress: false, error: null, results: results.Itineraries});
+      if (results.errors) {
+        // TODO: display validation errors.
+        const errorResponseMessage = 'Something went wrong. Sorry.';
+        this.setState({fetchingInProgress: false, error: errorResponseMessage, results: []});
+      } else {
+        this.setState({fetchingInProgress: false, error: null, results: results.Itineraries});
+      }
     })
     .catch((error) => {
       console.error(error);
