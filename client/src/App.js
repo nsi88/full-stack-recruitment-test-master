@@ -33,10 +33,11 @@ class App extends Component {
 
 // example api use
 // TODO put this call somewhere sensible
-// TODO send parameters to server - check out `server/src/api/server.js`
 console.log('fetching results from server...');
 
-fetch('http://localhost:4000/api/search')
+const url = `http://localhost:4000/api/search?fromPlace=${fromPlace}&toPlace=${toPlace}&adults=${adults}&class=${cabinClass}&fromDate=${dateTimeHelper.toISODateString(fromDate)}&toDate=${dateTimeHelper.toISODateString(toDate)}`;
+console.log('url:', url);
+fetch(url)
 .then((response) => {
   return response.json();
 })
