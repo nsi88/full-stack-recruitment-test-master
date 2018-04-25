@@ -156,18 +156,26 @@ function pollError (state, err) {
   state.onError(err);
 }
 
+function place(placeCode, locationSchema) {
+  if (locationSchema.toLowerCase() === 'default') {
+    return placeCode;
+  }
+  return placeCode + '-' + locationSchema;
+}
+
 const sessionParams = (query) => {
+  const locationSchema = 'Iata';
   return querystring.stringify({
     apiKey: config.apiKey,
     adults: query.adults,
     cabinclass: query.class,
     country: 'UK',
     currency: 'GBP',
-    destinationplace: query.toPlace,
+    destinationplace: place(query.toPlace, locationSchema),
     inbounddate: query.toDate,
     locale: 'en-GB',
-    locationschema: 'Sky',
-    originplace: query.fromPlace,
+    locationschema: locationSchema,
+    originplace: place(query.fromPlace, locationSchema),
     outbounddate: query.fromDate
   });
 }

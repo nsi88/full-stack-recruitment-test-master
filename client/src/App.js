@@ -9,7 +9,7 @@ import Results from './components/results';
 import dateTimeHelper from './date-time-helper.js';
 import resultsFetcher from './results-fetcher.js';
 
-const fromPlace = 'EDI-sky', toPlace = 'LOND-sky', adults = 2, cabinClass = 'Economy',
+const fromPlace = 'EDI', toPlace = 'LON', adults = 2, cabinClass = 'Economy',
   fromDate = dateTimeHelper.nextMonday(), toDate = dateTimeHelper.folowingDay(fromDate);
 
 class App extends Component {
