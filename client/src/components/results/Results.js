@@ -67,6 +67,7 @@ function stopsDescription(stopsCount) {
   }
 }
 
+// REVIEW: not sure in here, do I need to take imageUrl or make ut mannually, like now.
 function carrierLogo(carrierCode) {
   return `https://logos.skyscnr.com/images/airlines/favicon/${carrierCode}.png`;
 }
