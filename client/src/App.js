@@ -19,6 +19,24 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    // example api use
+    // TODO put this call somewhere sensible
+    console.log('fetching results from server...');
+
+    const url = `http://localhost:4000/api/search?fromPlace=${fromPlace}&toPlace=${toPlace}&adults=${adults}&class=${cabinClass}&fromDate=${dateTimeHelper.toISODateString(fromDate)}&toDate=${dateTimeHelper.toISODateString(toDate)}`;
+    console.log('url:', url);
+    fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((results) => {
+      console.log(results);
+      this.setState({results: results.Itineraries});
+    })
+    .catch(console.error);
+  }
+
   render() {
     return (
       <div className="App">
@@ -30,21 +48,5 @@ class App extends Component {
     );
   }
 }
-
-// example api use
-// TODO put this call somewhere sensible
-console.log('fetching results from server...');
-
-const url = `http://localhost:4000/api/search?fromPlace=${fromPlace}&toPlace=${toPlace}&adults=${adults}&class=${cabinClass}&fromDate=${dateTimeHelper.toISODateString(fromDate)}&toDate=${dateTimeHelper.toISODateString(toDate)}`;
-console.log('url:', url);
-fetch(url)
-.then((response) => {
-  return response.json();
-})
-.then((results) => {
-  console.log('TODO: something with these results:');
-  console.log(results);
-})
-.catch(console.error);
 
 export default App;
