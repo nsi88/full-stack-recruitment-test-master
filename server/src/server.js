@@ -2,9 +2,13 @@ require('isomorphic-fetch');
 require('es6-promise').polyfill();
 
 const express = require('express');
+const { check, validationResult } = require('express-validator/check');
+const { sanitize } = require('express-validator/filter');
 const app = express();
 const api = require('./api/');
 const clientApi = require('./client_api');
+
+const validCabinClasses = ['economy', 'premiumeconomy', 'business', 'first'];
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -12,6 +16,7 @@ app.use(function(req, res, next) {
   next();
 });
 
+// TODO: delete the endpoint or replace the response
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
@@ -22,9 +27,21 @@ app.get('/', (req, res) => {
   Api params and location values are here:
   http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart
 */
-app.get('/api/search', (req, res) => {
+app.get('/api/search', [
+  check('adults').isInt({gt: 0}).withMessage('must be a positive number'),
+  sanitize('class').customSanitizer((value) => value ? value.toLowerCase() : value),
+  check('class').isIn(validCabinClasses).withMessage(`must be one of ${validCabinClasses.join(', ')}`),
+  check('toPlace').exists().withMessage('is required'),
+  check('toDate').isISO8601().withMessage('must be a date (YYYY-mm-dd)'),
+  check('fromPlace').exists().withMessage('is required'),
+  check('fromDate').isISO8601().withMessage('must be a date (YYYY-mm-dd)'),
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   api.livePricing.search({
-    // TODO: validate params
     adults: req.query.adults,
     class: req.query.class,
     toPlace: req.query.toPlace,
@@ -38,7 +55,7 @@ app.get('/api/search', (req, res) => {
   })
   .catch((errors) => {
     console.error(errors);
-    res.json(clientApi.response.format({errors}));
+    res.status(400).json(clientApi.response.format({errors}));
   });
 });
 
