@@ -3,14 +3,13 @@
 .header {
   display: flex;
   flex-direction: column;
-  align-content: center;
   padding: $bpk-spacing-xs $bpk-spacing-sm;
   background-color: $bpk-color-blue-500;
   color: $bpk-color-white;
 
   &__places {
     @include bpk-heading-1();
-    margin-bottom: 0px;
+    margin-bottom: 0;
     text-transform: uppercase;
   }
 
