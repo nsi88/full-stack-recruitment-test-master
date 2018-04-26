@@ -64,6 +64,9 @@
     @include bpk-button;
     margin: $bpk-spacing-xs 0 0;
     padding: $bpk-spacing-xs $bpk-spacing-lg;
+    position: relative;
+    top: .175rem;
+    left: .175rem;
   }
 }
 
