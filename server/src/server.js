@@ -2,7 +2,7 @@ require('isomorphic-fetch');
 require('es6-promise').polyfill();
 
 const express = require('express');
-const { check, validationResult } = require('express-validator/check');
+const { query, validationResult } = require('express-validator/check');
 const { sanitize } = require('express-validator/filter');
 const app = express();
 const api = require('./api/');
@@ -27,14 +27,15 @@ app.get('/', (req, res) => {
   Api params and location values are here:
   http://business.skyscanner.net/portal/en-GB/Documentation/FlightsLivePricingQuickStart
 */
+// TODO: move it to clientApi.request.searchValidators
 app.get('/api/search', [
-  check('adults').isInt({gt: 0}).withMessage('must be a positive number'),
+  query('adults').isInt({gt: 0}).withMessage('must be a positive number'),
   sanitize('class').customSanitizer((value) => value ? value.toLowerCase() : value),
-  check('class').isIn(validCabinClasses).withMessage(`must be one of ${validCabinClasses.join(', ')}`),
-  check('toPlace').exists().withMessage('is required'),
-  check('toDate').isISO8601().withMessage('must be a date (YYYY-mm-dd)'),
-  check('fromPlace').exists().withMessage('is required'),
-  check('fromDate').isISO8601().withMessage('must be a date (YYYY-mm-dd)'),
+  query('class').isIn(validCabinClasses).withMessage(`must be one of ${validCabinClasses.join(', ')}`),
+  query('toPlace').exists().withMessage('is required'),
+  query('toDate').isISO8601().withMessage('must be a date (YYYY-mm-dd)'),
+  query('fromPlace').exists().withMessage('is required'),
+  query('fromDate').isISO8601().withMessage('must be a date (YYYY-mm-dd)'),
 ], (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -59,6 +60,8 @@ app.get('/api/search', [
   });
 });
 
-app.listen(4000, () => {
+const server = app.listen(4000, () => {
   console.log('Node server listening on http://localhost:4000');
 });
+
+module.exports = server;

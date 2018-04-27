@@ -36,6 +36,8 @@
     "html-webpack-plugin": "2.22.0",
     "http-proxy-agent": "^1.0.0",
     "json-loader": "0.5.4",
+    "mocha": "^5.1.1",
+    "nock": "^9.2.5",
     "node-sass": "^4.5.1",
     "opn": "4.0.2",
     "postcss-loader": "0.9.1",
@@ -44,6 +46,7 @@
     "rimraf": "2.5.4",
     "sass-loader": "^4.0.0",
     "style-loader": "0.13.1",
+    "supertest": "^3.0.0",
     "svg-url-loader": "^2.0.2",
     "url-loader": "0.5.7",
     "webpack": "1.13.1",
@@ -62,7 +65,9 @@
   "scripts": {
     "client": "cd client && node ./scripts/start.js",
     "build": "cd client && node ./scripts/build.js",
-    "server": "cd server && node src/server.js"
+    "server": "cd server && node src/server.js",
+    "server_test": "cd server && mocha",
+    "test": "npm run server_test"
   },
   "eslintConfig": {
     "extends": "./eslint.js"
