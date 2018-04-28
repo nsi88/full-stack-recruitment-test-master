@@ -1,5 +1,5 @@
 import React from 'react';
-import Results from '../Results';
+import Results from './Results';
 import renderer from 'react-test-renderer';
 import serverResponse from '../../../../test/fixtures/server-response.js'
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Controls from '../Controls';
+import Controls from './Controls';
 import renderer from 'react-test-renderer';
 
 test('render', () => {

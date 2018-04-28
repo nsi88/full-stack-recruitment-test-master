@@ -1,5 +1,5 @@
 import React from 'react';
-import TopNav from '../TopNav';
+import TopNav from './TopNav';
 import renderer from 'react-test-renderer';
 
 test('render', () => {
