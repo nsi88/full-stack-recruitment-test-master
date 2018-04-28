@@ -8,7 +8,7 @@ const app = express();
 const api = require('./api/');
 const clientApi = require('./client_api');
 
-const validCabinClasses = ['economy', 'premiumeconomy', 'business', 'first'];
+const VALID_CABIN_CLASSES = ['economy', 'premiumeconomy', 'business', 'first'];
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 app.get('/api/search', [
   query('adults').isInt({gt: 0}).withMessage('must be a positive number'),
   sanitize('class').customSanitizer((value) => value ? value.toLowerCase() : value),
-  query('class').isIn(validCabinClasses).withMessage(`must be one of ${validCabinClasses.join(', ')}`),
+  query('class').isIn(VALID_CABIN_CLASSES).withMessage(`must be one of ${VALID_CABIN_CLASSES.join(', ')}`),
   query('toPlace').exists().withMessage('is required'),
   query('toDate').isISO8601().withMessage('must be a date (YYYY-mm-dd)'),
   query('fromPlace').exists().withMessage('is required'),
