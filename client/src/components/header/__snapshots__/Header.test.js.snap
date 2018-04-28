@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 1`] = `
+<header
+  className="header"
+>
+  <h1
+    className="header__places"
+  >
+    EDI
+    <span
+      className="header__arrow-container"
+    >
+      <img
+        alt="to"
+        className="header__arrow"
+        src="test-file-stub"
+      />
+    </span>
+    LON
+  </h1>
+  <span
+    className="header__details"
+  >
+    2
+     
+    travelers
+    , 
+    Economy
+  </span>
+</header>
+`;

@@ -1,0 +1,443 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`error render 1`] = `
+<div
+  className="error"
+>
+  <div
+    className={null}
+    onTransitionEnd={[Function]}
+    style={
+      Object {
+        "MozTransition": "height 200ms ease ",
+        "OTransition": "height 200ms ease ",
+        "WebkitTransition": "height 200ms ease ",
+        "height": "auto",
+        "msTransition": "height 200ms ease ",
+        "overflow": "visible",
+        "transition": "height 200ms ease ",
+      }
+    }
+  >
+    <div>
+      <span
+        onTransitionEnd={[Function]}
+      >
+        <section
+          className="bpk-banner-alert bpk-banner-alert--error"
+        >
+          <header
+            className="bpk-banner-alert__header"
+            onClick={[Function]}
+            role="alert"
+          >
+            <span
+              className="bpk-banner-alert__icon"
+            >
+              <span
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "lineHeight": "1.125rem",
+                    "marginTop": "0.1875rem",
+                    "verticalAlign": "top",
+                  }
+                }
+              >
+                <svg
+                  className="bpk-banner-alert__error-icon"
+                  height="18"
+                  style={
+                    Object {
+                      "height": "1.125rem",
+                      "width": "1.125rem",
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1.5 16.1c0 .5-.4.9-.9.9h-1.1c-.5 0-.9-.4-.9-.9V11c0-.5.4-.9.9-.9h1.1c.5 0 .9.4.9.9v7.1zm0-11.1c0 .5-.5 1-1 1h-1c-.5 0-1-.5-1-1V6c0-.5.5-1 1-1h1c.5 0 1 .5 1 1v1z"
+                  />
+                </svg>
+              </span>
+            </span>
+             
+            <span
+              className="bpk-banner-alert__message"
+            >
+              Something went wrong.
+            </span>
+             
+          </header>
+          <div
+            onTransitionEnd={[Function]}
+            style={
+              Object {
+                "MozTransition": "height 200ms ease ",
+                "OTransition": "height 200ms ease ",
+                "WebkitTransition": "height 200ms ease ",
+                "height": 0,
+                "msTransition": "height 200ms ease ",
+                "overflow": "hidden",
+                "transition": "height 200ms ease ",
+              }
+            }
+          >
+            <div>
+              <div
+                className="bpk-banner-alert__children-container"
+              />
+            </div>
+          </div>
+        </section>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`results render 1`] = `
+<ul
+  className="results"
+>
+  <li
+    className="result"
+  >
+    <div
+      className="result__legs"
+    >
+      <div
+        className="leg"
+      >
+        <div
+          className="leg__main-info"
+        >
+          <img
+            alt="Flybe"
+            className="leg__airline"
+            src="https://logos.skyscnr.com/images/airlines/favicon/BE.png"
+          />
+          <div
+            className="leg__departure"
+          >
+            <div
+              className="leg__time"
+            >
+              18:20
+            </div>
+            <div
+              className="leg__place"
+            >
+              EDI
+            </div>
+          </div>
+          <div
+            className="leg__arrow-container"
+          >
+            <img
+              alt="to"
+              className="leg__arrow"
+              src="test-file-stub"
+            />
+          </div>
+          <div
+            className="leg__arrival"
+          >
+            <div
+              className="leg__time"
+            >
+              20:00
+            </div>
+            <div
+              className="leg__place"
+            >
+              LHR
+            </div>
+          </div>
+        </div>
+        <div
+          className="leg__additional-info"
+        >
+          <div
+            className="leg__duration"
+          >
+            1h 40
+          </div>
+          <div
+            className="leg__stops leg--direct"
+          >
+            Direct
+          </div>
+        </div>
+      </div>
+      <div
+        className="leg"
+      >
+        <div
+          className="leg__main-info"
+        >
+          <img
+            alt="Flybe"
+            className="leg__airline"
+            src="https://logos.skyscnr.com/images/airlines/favicon/BE.png"
+          />
+          <div
+            className="leg__departure"
+          >
+            <div
+              className="leg__time"
+            >
+              18:20
+            </div>
+            <div
+              className="leg__place"
+            >
+              LHR
+            </div>
+          </div>
+          <div
+            className="leg__arrow-container"
+          >
+            <img
+              alt="to"
+              className="leg__arrow"
+              src="test-file-stub"
+            />
+          </div>
+          <div
+            className="leg__arrival"
+          >
+            <div
+              className="leg__time"
+            >
+              20:00
+            </div>
+            <div
+              className="leg__place"
+            >
+              EDI
+            </div>
+          </div>
+        </div>
+        <div
+          className="leg__additional-info"
+        >
+          <div
+            className="leg__duration"
+          >
+            1h 40
+          </div>
+          <div
+            className="leg__stops leg--direct"
+          >
+            Direct
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="result__bottom"
+    >
+      <div
+        className="result__price-info"
+      >
+        <div
+          className="result__price"
+        >
+          £
+           
+          100
+        </div>
+        <div
+          className="result__agent"
+        >
+          flybe
+        </div>
+      </div>
+      <button
+        className="result__select"
+      >
+        Select
+      </button>
+    </div>
+  </li>
+  <li
+    className="result"
+  >
+    <div
+      className="result__legs"
+    >
+      <div
+        className="leg"
+      >
+        <div
+          className="leg__main-info"
+        >
+          <img
+            alt="Flybe"
+            className="leg__airline"
+            src="https://logos.skyscnr.com/images/airlines/favicon/BE.png"
+          />
+          <div
+            className="leg__departure"
+          >
+            <div
+              className="leg__time"
+            >
+              18:20
+            </div>
+            <div
+              className="leg__place"
+            >
+              EDI
+            </div>
+          </div>
+          <div
+            className="leg__arrow-container"
+          >
+            <img
+              alt="to"
+              className="leg__arrow"
+              src="test-file-stub"
+            />
+          </div>
+          <div
+            className="leg__arrival"
+          >
+            <div
+              className="leg__time"
+            >
+              20:00
+            </div>
+            <div
+              className="leg__place"
+            >
+              LHR
+            </div>
+          </div>
+        </div>
+        <div
+          className="leg__additional-info"
+        >
+          <div
+            className="leg__duration"
+          >
+            1h 40
+          </div>
+          <div
+            className="leg__stops leg--direct"
+          >
+            Direct
+          </div>
+        </div>
+      </div>
+      <div
+        className="leg"
+      >
+        <div
+          className="leg__main-info"
+        >
+          <img
+            alt="Flybe"
+            className="leg__airline"
+            src="https://logos.skyscnr.com/images/airlines/favicon/BE.png"
+          />
+          <div
+            className="leg__departure"
+          >
+            <div
+              className="leg__time"
+            >
+              20:45
+            </div>
+            <div
+              className="leg__place"
+            >
+              LHR
+            </div>
+          </div>
+          <div
+            className="leg__arrow-container"
+          >
+            <img
+              alt="to"
+              className="leg__arrow"
+              src="test-file-stub"
+            />
+          </div>
+          <div
+            className="leg__arrival"
+          >
+            <div
+              className="leg__time"
+            >
+              22:25
+            </div>
+            <div
+              className="leg__place"
+            >
+              EDI
+            </div>
+          </div>
+        </div>
+        <div
+          className="leg__additional-info"
+        >
+          <div
+            className="leg__duration"
+          >
+            1h 40
+          </div>
+          <div
+            className="leg__stops leg--direct"
+          >
+            Direct
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="result__bottom"
+    >
+      <div
+        className="result__price-info"
+      >
+        <div
+          className="result__price"
+        >
+          £
+           
+          100
+        </div>
+        <div
+          className="result__agent"
+        >
+          flybe
+        </div>
+      </div>
+      <button
+        className="result__select"
+      >
+        Select
+      </button>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`spinner render 1`] = `
+<div
+  className="spinner"
+>
+  <div
+    className="spinner__icon"
+  />
+  <div
+    className="spinner__text"
+  >
+    Searching
+  </div>
+</div>
+`;

@@ -1,23 +1,18 @@
-const assert = require('assert');
-const fs = require('fs');
-const { describe, it, before, after } = require('mocha');
 const nock = require('nock');
 const request = require('supertest');
 const server = require('../src/server');
 
-after(function() {
-  server.close();
-});
+afterAll(() => { server.close() });
 
-describe('/api/search', function(done) {
-  describe('with missing params', function() {
-    it('should return errors', function(done) {
+describe('/api/search', () => {
+  describe('with missing params', () => {
+    test('should return errors', (done) => {
       request(server)
         .get('/api/search')
         .expect(400)
         .expect(({body}) => {
           body.errors.sort((a, b) => a.param < b.param ? -1 : 1);
-          assert.deepEqual(body, {
+          expect(body).toEqual({
             errors: [
               { location: 'query', param: 'adults', msg: 'must be a positive number' },
               { location: 'query', param: 'class', msg: 'must be one of economy, premiumeconomy, business, first' },
@@ -32,13 +27,13 @@ describe('/api/search', function(done) {
     });
   });
 
-  describe('with invalid adults', function() {
-    it('should return errors', function(done) {
+  describe('with invalid adults', () => {
+    test('should return errors', (done) => {
       request(server)
         .get('/api/search?adults=0&class=Economy&fromDate=2018-04-30&fromPlace=EDI&toDate=2018-05-01&toPlace=LON')
         .expect(400)
         .expect(({body}) => {
-          assert.deepEqual(body, {
+          expect(body).toEqual({
             errors: [
               { location: 'query', param: 'adults', msg: 'must be a positive number', value: '0' }
             ]
@@ -48,28 +43,29 @@ describe('/api/search', function(done) {
     });
   });
 
-  describe('with valid params', function() {
-    before(function(done) {
+  describe('with valid params', () => {
+    beforeAll(() => {
       const apiUri = 'http://partners.api.skyscanner.net';
       const sessionUrl = apiUri + '/apiservices/pricing/sg1/v1.0/TestSessionKey';
+      // TODO: replace nock with jest mocks
       nock(apiUri)
         .post('/apiservices/pricing/v1.0')
         .query(true)
         .reply(201, {}, { 'Location': sessionUrl });
+      const pollingResponse = require('../../test/fixtures/polling-response');
       nock(apiUri)
         .get('/apiservices/pricing/v1.0/TestSessionKey')
         .query(true)
-        .replyWithFile(200, __dirname + '/fixtures/polling-response.json', { 'Content-Type': 'application/json' });
-      done();
+        .reply(200, pollingResponse, { 'Content-Type': 'application/json' });
     });
 
-    it('should return itineraries', function(done) {
+    test('should return itineraries', (done) => {
       request(server)
         .get('/api/search?adults=1&class=Economy&fromDate=2018-04-30&fromPlace=EDI&toDate=2018-05-01&toPlace=LON')
         .expect(200)
         .expect(({body}) => {
-          const response = fs.readFileSync(__dirname + '/fixtures/server-response.json').toString();
-          assert.deepEqual(body, JSON.parse(response));
+          const response = require('../../test/fixtures/server-response');
+          expect(body).toEqual(response);
         })
         .end(done);
     });

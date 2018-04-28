@@ -1,4 +1,4 @@
-{
+module.exports = {
     "Agents": [
       {
           "BookingNumber": "+448717002000",
@@ -474,4 +474,4 @@
     },
     "SessionKey": "TestSessionKey",
     "Status": "UpdatesComplete"
-}
+};

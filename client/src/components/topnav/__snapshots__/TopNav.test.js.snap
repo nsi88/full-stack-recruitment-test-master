@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 1`] = `
+<nav
+  className="top-nav"
+>
+  <a
+    href="/"
+  >
+    <span
+      className="top-nav__logo-text"
+    >
+      Skyscanner
+    </span>
+    <img
+      alt="Skyscanner"
+      className="top-nav__logo"
+      src="test-file-stub"
+    />
+  </a>
+  <img
+    alt="Menu"
+    className="top-nav__burger-menu"
+    src="test-file-stub"
+  />
+</nav>
+`;

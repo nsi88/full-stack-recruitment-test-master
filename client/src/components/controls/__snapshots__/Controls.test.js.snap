@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 1`] = `
+<div
+  className="controls"
+>
+  <div>
+    <span
+      className="controls__control"
+    >
+      Filter
+    </span>
+    <span
+      className="controls__control"
+    >
+      Sort
+    </span>
+  </div>
+  <div>
+    <span
+      className="controls__control control"
+    >
+      <img
+        className="control__price-alerts"
+        role="presentation"
+        src="test-file-stub"
+      />
+      Price alerts
+    </span>
+  </div>
+</div>
+`;
