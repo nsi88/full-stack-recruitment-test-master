@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const response = {
   /**
     Format client API response.
@@ -10,6 +12,15 @@ const response = {
     }
 
     if (results) {
+      // NOTE: Optimisation of array lookups.
+      // Convert arrays (Agents, Carriers, Legs, Places, Segments) to an object with key Id
+      Object.assign(results, {
+        AgentsObject: _.groupBy(results.Agents, agent => agent.Id),
+        CarriersObject: _.groupBy(results.Carriers, carrier => carrier.Id),
+        LegsObject: _.groupBy(results.Legs, leg => leg.Id),
+        PlacesObject: _.groupBy(results.Places, place => place.Id),
+        SegmentsObject: _.groupBy(results.Segments, segment => segment.Id)
+      });
       return {
         'Itineraries': results.Itineraries.map((itinerary) => formatItinerary(itinerary, results)),
       };
@@ -24,10 +35,10 @@ function formatItinerary(itinerary, results) {
   const pricingOptions = itinerary.PricingOptions.filter((pricingOption) => !pricingOptionIsEmpty(pricingOption));
   // REVIEW: not sure in here, which PricingOption, Agent, Currency to choose.
   const pricingOption = chooseCheapestPricingOption(pricingOptions);
-  const agent = findAgent(pricingOption.Agents[0], results);
+  const agent = results.AgentsObject[pricingOption.Agents[0]][0];
   const currency = results.Currencies[0];
-  const outboundLeg = findLeg(itinerary.OutboundLegId, results);
-  const inboundLeg = findLeg(itinerary.InboundLegId, results);
+  const outboundLeg = results.LegsObject[itinerary.OutboundLegId][0];
+  const inboundLeg = results.LegsObject[itinerary.InboundLegId][0];
   return {
     'Agent': {
       'Name': agent.Name,
@@ -56,24 +67,10 @@ function chooseCheapestPricingOption(pricingOptions) {
   }, pricingOptions[0]);
 }
 
-// TODO: optimize array lookups, converting them before to maps with id keys.
-function findAgent(agentId, results) {
-  const agent = results.Agents.find(({Id}) => Id === agentId);
-  console.assert(!!agent, `Agent with id ${agentId} not found`);
-  return agent;
-}
-
-// XXX: similar findSomething methods. Maybe to refactor it?
-function findLeg(legId, results) {
-  const leg = results.Legs.find(({Id}) => Id === legId);
-  console.assert(!!leg, `Leg with id ${legId} not found`);
-  return leg;
-}
-
 function formatLeg(leg, results) {
-  const carrier = findCarrier(leg.Carriers[0], results);
-  const originStation = findPlace(leg.OriginStation, results);
-  const destinationStation = findPlace(leg.DestinationStation, results);
+  const carrier = results.CarriersObject[leg.Carriers[0]][0];
+  const originStation = results.PlacesObject[leg.OriginStation][0];
+  const destinationStation = results.PlacesObject[leg.DestinationStation][0];
   return {
     'Carrier': {
       'Code': carrier.Code,
@@ -90,18 +87,6 @@ function formatLeg(leg, results) {
     },
     'StopsCount': leg.Stops.length,
   };
-}
-
-function findCarrier(carrierId, results) {
-  const carrier = results.Carriers.find(({Id}) => Id === carrierId);
-  console.assert(!!carrier, `Carrier with id ${carrierId} not found`)
-  return carrier;
-}
-
-function findPlace(placeId, results) {
-  const place = results.Places.find(({Id}) => Id === placeId);
-  console.assert(!!place, `Place with id ${placeId} not found`)
-  return place;
 }
 
 module.exports = response;
