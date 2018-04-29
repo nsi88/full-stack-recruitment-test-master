@@ -2,7 +2,9 @@ const _ = require('lodash');
 
 const response = {
   /**
-    Format client API response.
+   * Format client API response.
+   *
+   * See an example in test/fixtures/server-response.js
    */
   format: (results) => {
     // NOTE: Optimisation of array lookups.
