@@ -2,11 +2,11 @@
 
 ### Q) What libraries did you add to the frontend? What are they used for?
 
-* `bpk-component-banner-alert` - to display connection or validation errors;
+* `bpk-component-banner-alert` - to display connection/validation errors;
 
-* `jest` - for testing, including server tests and react components snapshot tests;
+* `jest` - for testing, including server tests and react components tests;
 
-* `babel-jest`, `babel-preset-env`, `regenerator-runtime` - to use babel;
+* `babel-jest`, `babel-preset-env`, `regenerator-runtime` - to use jest with babel;
 
 * `react-test-renderer` - for snapshot testing;
 
@@ -24,15 +24,17 @@ About 30 hours.
 
 ### Q) If you had more time, what further improvements or new features would you add?
 
-* Displaying details about validation errors. Now it's just a message, that something went wrong.
-
-* Try to replace nock package with included to jest mock feature.
+* Display details about validation errors. Now it's just a message, that something went wrong.
 
 * Make a common arrow component instead of two svg icons.
 
+* Replace nock package with included to jest mock feature.
+
+* Build the server API documentation.
+
 ### Q) Which parts are you most proud of? And why?
 
-I've finally tried jest. Had no time on my current work to do it.
+I've finally tried `jest`. Had no time on my current work to do it.
 I've met an interesting problem with it.
 Jest expects node_modules to be transpiled.
 But backpack components are not.
@@ -48,6 +50,6 @@ I think writing css. I do it not very often on my work.
 The test is great.
 
 It's focused much more on frontend part.
-For fullstack positions would be good to balance the difficulty of server and frontend parts.
+For Full-Stack positions would be good to balance the difficulty of server and frontend parts.
 
-The easiest way to make it, is to delete server implementation from zip and implement more frontend components.
+One of the easiest way to make it, is to delete the server implementation from zip and implement more frontend components.
