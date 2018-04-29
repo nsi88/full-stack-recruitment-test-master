@@ -14,6 +14,8 @@
 
 (Default) `APIKEY=<key> npm run server`
 
+Requires node 9+.
+
 ---
 
 # General:
