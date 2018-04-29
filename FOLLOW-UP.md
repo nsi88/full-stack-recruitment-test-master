@@ -34,6 +34,8 @@ About 30 hours.
 
 * Build the server API documentation.
 
+* Think about faster results rendering.
+
 ### Q) Which parts are you most proud of? And why?
 
 I've finally tried `jest`. Had no time on my current work to do it.
