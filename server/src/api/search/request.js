@@ -18,7 +18,7 @@ const request = {
   ],
 
   /**
-   * Validate request. Send 400 { errors: [...] } if invalid.
+   * Validate request. Send 400 { errors: [...] } if invalid, else call the next middleware.
    */
   validate: (req, res, next) => {
     const errors = validationResult(req);

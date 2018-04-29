@@ -60,6 +60,9 @@ const dateTimeHelper = {
     return date;
   },
 
+  /**
+   * Return the next day date.
+   */
   followingDay: (date) => {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
   },

@@ -54,7 +54,7 @@ function createSession (params) {
     livePricing.api.createSession(params)
       .then((response) => {
         if (response.status !== 201) {
-          console.error(response.status, 'something went wrong...')
+          console.error(response.status, 'something went wrong...');
           response.json().then(reject);
         } else {
           // session created
