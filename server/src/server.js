@@ -7,6 +7,7 @@ const { sanitize } = require('express-validator/filter');
 const app = express();
 const api = require('./api/');
 const clientApi = require('./client_api');
+const config = require('./config');
 
 const VALID_CABIN_CLASSES = ['economy', 'premiumeconomy', 'business', 'first'];
 
@@ -60,8 +61,8 @@ app.get('/api/search', [
   });
 });
 
-const server = app.listen(4000, () => {
-  console.log('Node server listening on http://localhost:4000');
+const server = app.listen(config.port, () => {
+  console.log(`Node server listening on http://localhost:${config.port}`);
 });
 
 module.exports = server;
