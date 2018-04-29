@@ -4,27 +4,19 @@ const response = {
   /**
     Format client API response.
    */
-  format: ({errors, results}) => {
-    if (errors) {
-      return {
-        'errors': errors,
-      };
-    }
-
-    if (results) {
-      // NOTE: Optimisation of array lookups.
-      // Convert arrays (Agents, Carriers, Legs, Places, Segments) to an object with key Id
-      Object.assign(results, {
-        AgentsObject: _.groupBy(results.Agents, agent => agent.Id),
-        CarriersObject: _.groupBy(results.Carriers, carrier => carrier.Id),
-        LegsObject: _.groupBy(results.Legs, leg => leg.Id),
-        PlacesObject: _.groupBy(results.Places, place => place.Id),
-        SegmentsObject: _.groupBy(results.Segments, segment => segment.Id)
-      });
-      return {
-        'Itineraries': results.Itineraries.map((itinerary) => formatItinerary(itinerary, results)),
-      };
-    }
+  format: (results) => {
+    // NOTE: Optimisation of array lookups.
+    // Converts arrays (Agents, Carriers, Legs, Places, Segments) to an object with key Id
+    Object.assign(results, {
+      AgentsObject: _.groupBy(results.Agents, agent => agent.Id),
+      CarriersObject: _.groupBy(results.Carriers, carrier => carrier.Id),
+      LegsObject: _.groupBy(results.Legs, leg => leg.Id),
+      PlacesObject: _.groupBy(results.Places, place => place.Id),
+      SegmentsObject: _.groupBy(results.Segments, segment => segment.Id)
+    });
+    return {
+      'Itineraries': results.Itineraries.map((itinerary) => formatItinerary(itinerary, results)),
+    };
   }
 };
 
