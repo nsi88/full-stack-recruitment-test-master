@@ -5,9 +5,12 @@ const dateTimeHelper = {
    * Returns Date or throws TypeError.
    */
   parse: (dateString) => {
+    if (typeof(dateString) !== 'string') {
+      throw new TypeError(`"${dateString}" is not a Date`);
+    }
     const date = new Date(dateString);
-    if (date === 'Invalid Date') {
-      throw new TypeError(`"${dateString}" is not a Date`)
+    if (date.toString() === 'Invalid Date') {
+      throw new TypeError(`"${dateString}" is not a Date`);
     }
     return date;
   },
@@ -57,7 +60,7 @@ const dateTimeHelper = {
     return date;
   },
 
-  folowingDay: (date) => {
+  followingDay: (date) => {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
   },
 

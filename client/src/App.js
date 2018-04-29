@@ -10,7 +10,7 @@ import dateTimeHelper from './date-time-helper.js';
 import resultsFetcher from './results-fetcher.js';
 
 const fromPlace = 'EDI', toPlace = 'LON', adults = 2, cabinClass = 'Economy',
-  fromDate = dateTimeHelper.nextMonday(), toDate = dateTimeHelper.folowingDay(fromDate);
+  fromDate = dateTimeHelper.nextMonday(), toDate = dateTimeHelper.followingDay(fromDate);
 
 class App extends Component {
   constructor(props) {
