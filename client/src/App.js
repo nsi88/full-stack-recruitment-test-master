@@ -54,7 +54,8 @@ class App extends Component {
         <TopNav/>
         <Header fromPlace={fromPlace} toPlace={toPlace} adults={adults} cabinClass={cabinClass}/>
         <Controls/>
-        <Results fetchingInProgress={this.state.fetchingInProgress}
+        <Results
+          fetchingInProgress={this.state.fetchingInProgress}
           error={this.state.error}
           results={this.state.results}/>
       </div>
