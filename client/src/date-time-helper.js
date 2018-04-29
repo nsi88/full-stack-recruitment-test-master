@@ -38,26 +38,23 @@ const dateTimeHelper = {
      return `${hours}h ${leftMinutes}`;
    },
 
-   /**
-    * Return next monday date for passed date.
-    *
-    * If date is not passed, today date will be used.
-    * If date is monday, the next week monday will be returned.
-    * Uses local time.
-    */
-   nextMonday: (date = new Date()) => {
+  /**
+   * Return next monday date for passed date.
+   *
+   * If date is not passed, today date will be used.
+   * If date is monday, the next week monday will be returned.
+   * Uses local time.
+   */
+  nextMonday: (date = new Date()) => {
     const day = date.getDay();
     switch (day) {
       case 0: // sunday
-        date.setDate(date.getDate() + 1);
-        break;
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
       case 1:
-        date.setDate(date.getDate() + 7);
-        break;
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7);
       default:
-        date.setDate(date.getDate() + 8 - day);
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate() + 8 - day);
     }
-    return date;
   },
 
   /**
