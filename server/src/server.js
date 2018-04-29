@@ -17,9 +17,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-// TODO: delete the endpoint or replace the response
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Full-Stack Recruitment test');
 });
 
 /**
